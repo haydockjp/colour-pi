@@ -27,3 +27,10 @@ The selecting a voice from the Known Voices list changes the voice used for the 
 - [pi-blaster](https://github.com/sarfata/pi-blaster) is needed to make this work. If you have problems with the physical LEDs, try restarting pi-blaster.
 
 Please see the [Colour-pi instructable](https://goo.gl/AJhric) for full details.
+
+
+```
+npm install
+git checkout node_modules/cylon-api-socketio/lib/api.js
+npm start
+```
