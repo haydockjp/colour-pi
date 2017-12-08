@@ -1,0 +1,27 @@
+/* global */
+html, body{
+    padding: 6px;
+    height: 100%;
+    width: 100%;
+}
+body {
+    background-color: #ffffff;
+}
+.main.container {
+    margin-top: 5em;
+    min-height: 100%;
+}
+
+.ui.stacked.card {
+    min-width: 500px;
+}
+
+.box {
+    height: 200px;
+    overflow-x: hidden; 
+    overflow-y: auto; 
+}
+
+#output {
+    text-align: center;
+}
