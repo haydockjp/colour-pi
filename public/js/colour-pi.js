@@ -153,7 +153,7 @@ function updateOutput(colour) {
             g = parseInt(colours[colour].slice(3, 5), 16),
             b = parseInt(colours[colour].slice(5, 7), 16);
 	// Update the output colour text and background colour
-	output.innerHTML = colours[colour];
+	output.innerHTML = colours[colour] + ' (' + r + ', ' + g + ', ' + b +')';
 	output.style.background = colours[colour];
 	output.style.color = getFontColour(r,g,b);
 	// Log that we found a colour 
@@ -168,7 +168,6 @@ function updateOutput(colour) {
 // Work out a good font colour to use against the background colour
 //////////////////////////////////////////////////////////////////////////////////
 function getFontColour(r,g,b) {
-    output.innerHTML += ' (' + r + ', ' + g + ', ' + b +')';
     return (r * 0.299 + g * 0.587 + b * 0.114) > 186
 	? '#000000'
 	: '#FFFFFF';
@@ -206,7 +205,15 @@ $( document ).ready(function() {
     updateStatus('Waiting...');
 
     // Add the coloutd from the data we retrieved fromt he server
-    for (c in colours) {colourData.add( new Option(c,colours[c]) );}
+    for (c in colours) {
+	let o =  new Option(c,colours[c]);
+	let r = parseInt(colours[c].slice(1, 3), 16),
+	    g = parseInt(colours[c].slice(3, 5), 16),
+	    b = parseInt(colours[c].slice(5, 7), 16);
+	
+	o.setAttribute('style', ' background-color:' + colours[c] + '; color:' + getFontColour(r,g,b) );
+	colourData.add(o);
+    }
 
     // Set up the default values for the speech recognition
     recognition.continuous = true;
